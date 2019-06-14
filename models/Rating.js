@@ -1,10 +1,16 @@
 const mongoose = require('mongoose');
 
 const ratingSchema = new mongoose.Schema({
-  nilai: Number,
+  rating: Number,
   content: String,
-  untuk: String,
-  dari: String
+  from: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  }
+  to: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Field',
+  }
 }, {
   timestamps: true
 });

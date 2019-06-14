@@ -3,22 +3,29 @@ const crypto = require('crypto');
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    unique: true
-  },
+  email: { type: String, unique: true },
   password: String,
   passwordResetToken: String,
   passwordResetExpires: Date,
+
+  snapchat: String,
+  facebook: String,
+  twitter: String,
+  google: String,
+  github: String,
+  instagram: String,
+  linkedin: String,
+  steam: String,
   tokens: Array,
-  name: String,
-  image: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'File',
-  },
-}, {
-  timestamps: true
-});
+
+  profile: {
+    name: String,
+    gender: String,
+    location: String,
+    website: String,
+    picture: String
+  }
+}, { timestamps: true });
 
 /**
  * Password hash middleware.

@@ -1,27 +1,91 @@
 extends layout
 
+block head
+  link(rel='stylesheet', href='/assets/home.css')
+
 block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
-  hr
-  .row
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
+  #topCarousel.container-fluid
+    .container
+      #myCarousel.carousel.slide(data-ride="carousel")
+        // Indicators
+        ol.carousel-indicators
+          li.active(data-target="#myCarousel" data-slide-to="0")
+          li(data-target="#myCarousel" data-slide-to="1")
+          li(data-target="#myCarousel" data-slide-to="2")
+        // Wrapper for slides
+        .carousel-inner             
+          .item.active
+            img(src="assets/img/banner.png" alt="Header")
+          .item
+            img(src="assets/img/banner.png" alt="Header")
+          .item
+            img(src="assets/img/banner.png" alt="Header")
+        // Left and right controls
+        a.left.carousel-control(href="#myCarousel" data-slide="prev")
+          span.glyphicon.glyphicon-chevron-left
+          span.sr-only Previous
+        a.right.carousel-control(href="#myCarousel" data-slide="next")
+          span.glyphicon.glyphicon-chevron-right
+          span.sr-only Next
+  
+  #head-form.container
+    .card.head-form
+      .card-body
+        form.form(action="")  
+          .row
+            .col-lg-8
+              .form-group
+                label.form-label Lokasi
+                input.form-control(type='text')
+            .col-lg-4
+              .form-group
+                label.form-label Tanggal
+                input.form-control(type='text')
+            .col-lg-4
+              .form-group
+                label.form-label Jam Mulai
+                input.form-control(type='text')
+            .col-lg-4
+              .form-group
+                label.form-label Durasi
+                input.form-control(type='text')
+            .col-lg-4
+              .form-group
+                label.form-label     .
+                btn.btn.btn-primary.form-control Cari Lapangan
+  
+  .main-container
+    .container
+      #promotion
+        .col-lg-12
+          h1.centered Promotion
+        .col-lg-4
+          img.centered(src="/image/bukalapak-logo.jpg")
+        .col-lg-4
+          img.centered(src="/image/bukalapak-logo.jpg")
+        .col-lg-4
+          img.centered(src="/image/bukalapak-logo.jpg")
+
+      #joinUs
+        .col-lg-12
+          h1.centered Why Join Us
+        .col-lg-12
+          .col-lg-3
+            img(src="/image/bukalapak-logo.jpg")
+          .col-lg-9
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
+        .col-lg-12
+          .col-lg-9
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
+          .col-lg-3
+            img(src="/image/bukalapak-logo.jpg")
+          .col-lg-12
+          .col-lg-3
+            img(src="/image/bukalapak-logo.jpg")
+          .col-lg-9
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
+  .container-fluid#topPick
+    .col-lg-12 
+      h1.centered Top Lapangan
+            
+      

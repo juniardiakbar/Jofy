@@ -1,0 +1,26 @@
+.head-form  {
+  z-index:2;
+}
+#head-form{
+  z-index:2;
+  margin-top:-75px;
+  background-color: tomato;
+}
+
+#promotion{
+  align-items: center;
+  margin: auto;
+}
+.centered{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center; 
+}
+#topCarousel{
+  background-color: green;
+  z-index: 0;
+}
+#topPick{
+  background-color :tomato;
+}

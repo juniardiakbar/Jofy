@@ -37,6 +37,7 @@ const apiController = require('./controllers/api');
 const fieldController = require('./controllers/field');
 const communityController = require('./controllers/community');
 const lobyController = require('./controllers/loby');
+const userController = require('./controllers/user');
 
 /**
  * API keys and Passport configuration.
@@ -136,13 +137,14 @@ app.post('/', homeController.postHome);
 app.get('/field', fieldController.getList);
 app.get('/field/:id', fieldController.getView);
 app.get('/field/:id/book/', fieldController.getForm);
-app.post('/field/:id/book/', fieldController.postForm);
+app.post('/field/:id/', fieldController.postForm);
 app.get('/loby/', lobyController.getList);
 app.get('/loby/:id', lobyController.getView);
 app.get('/community', communityController.getList);
-// app.get('/login', userController.getLogin);
+
+app.get('/login', userController.getLogin);
+app.get('/logout', userController.logout);
 // app.post('/login', userController.postLogin);
-// app.get('/logout', userController.logout);
 
 /**
  * OAuth authentication routes. (Sign in)
@@ -151,7 +153,7 @@ app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', '
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), (req, res) => {
   res.redirect(req.session.returnTo || '/');
 });
-app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email', 'https://www.googleapis.com/auth/drive'], accessType: 'offline', prompt: 'consent' }));
+app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' } ));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   res.redirect(req.session.returnTo || '/');
 });

@@ -1,0 +1,38 @@
+extends ../layout
+
+block head
+  link(rel="stylesheet" href="/assets/css/account/login.css")
+
+
+block content
+  section.hero.is-fullheight
+    .hero-body
+      .container
+        .columns.is-centered
+          .column.is-4
+            form.box(action='')
+              .field
+                label.label(for='') Email
+                .control.has-icons-left
+                  input.input(type='email', placeholder='e.g. bobsmith@gmail.com', required='')
+                  span.icon.is-small.is-left
+                    i.fa.fa-envelope
+              .field
+                label.label(for='') Password
+                .control.has-icons-left
+                  input.input(type='password', placeholder='*******', required='')
+                  span.icon.is-small.is-left
+                    i.fa.fa-lock
+              .field
+                button.button.is-success.is-fullwidth
+                  | Login
+              .field
+                a.button.is-danger.is-fullwidth(href='/auth/google')
+                  | Sign in with Google
+              .field
+                a.button.is-link.is-fullwidth(href='/auth/google')
+                  | Sign in with Facebook
+
+
+
+  .form-footer

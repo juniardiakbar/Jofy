@@ -96,13 +96,23 @@ exports.getView = (req, res) => {
   }
 
   const findBook = Book.find({
-    "field": req.params.id
+    $and: [
+      {
+        "field": req.params.id
+      },
+      {
+        "bookDate": { $eq: date } 
+      }
+    ]
   })
 
   const findBookQuery = Book.find({
     $and: [
       {
         "field": req.params.id
+      },
+      {
+        "bookDate": { $eq: date }
       },
       {
         "startHour": { $in: range }
@@ -113,18 +123,19 @@ exports.getView = (req, res) => {
 
   Promise.all([findField, findBook, findBookQuery])
     .then(([field, book, bookQuery]) => {
-      // const bookField = [];
-      // book.forEach((data) => {
-      //   bookField.push(data.field.toString());
-      // })
-
-      // const result = bookField.includes(field._id.toString());
-
-      res.send({
-        'status': 'success',
-        'data.field': field,
-        'data.book': book,
-        'data.result': bookQuery.length == 0,
+      var hours = [];
+      book.forEach((data) => {
+        var rangeHour = []; 
+        for (let i = parseInt(data.startHour); i < parseInt(data.startHour) + parseInt(data.duration); i++) {
+          hours.push(i);
+        }        
+      });
+      res.render('field/view', {
+        field,
+        hours,
+        result: bookQuery.length == 0,
+        query: req.query,
+        id: req.params.id,
       });
     })
     .catch(e => {

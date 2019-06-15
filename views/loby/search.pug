@@ -4,62 +4,31 @@ block head
   link(rel='stylesheet', href='/assets/css/loby/search.css')
 
 block content
-  .container
-    .columns
-      .column
-        .box-header
-          .columns
-            .column.is-one-fifth
-              img(src='https://bulma.io/images/placeholders/96x96.png', width='36', height='36') 
-            .column.is-one-third
-              p Juniardi Akbar
-            .column
-              a.button.is-link Ranked Match
-        .box
-          .content
-            h5.title.is-5 Main bareng Pak Mus
-            .icons
-              span
-                i.far.fa-clock
-              p 17:00 | 2 Jam
-            .icons
-              span
-                i.far.fa-calendar
-              p 15 Jun 2019
-            .icons
-              span
-                i.fas.fa-map-marker
-              p GOR Badminton Tadika
-            p Booked: Juniardi Akbar
-            p Pemain: 6/10
-            progress.progress.is-large.is-success(value='60', max='100')
-            a.button.is-primary Join
-
-      .column
-        .box-header
-          .columns
-            .column.is-one-fifth
-              img(src='https://bulma.io/images/placeholders/96x96.png', width='36', height='36') 
-            .column.is-one-third
-              p Juniardi Akbar
-            .column
-              a.button.is-link Ranked Match
-        .box
-          .content
-            h5.title.is-5 Main bareng Pak Mus
-            .icons
-              span
-                i.far.fa-clock
-              p 17:00 | 2 Jam
-            .icons
-              span
-                i.far.fa-calendar
-              p 15 Jun 2019
-            .icons
-              span
-                i.fas.fa-map-marker
-              p GOR Badminton Tadika
-            p Booked By: Juniardi Akbar
-            p Pemain: 6/10
-            progress.progress.is-large.is-success(value='60', max='100')
-            a.button.is-primary Join
+  .title-container
+    .lobby-title
+      p Temukan Lawan Tandingmu
+    .lobby-subtitle
+      p Cari berdasarkan tempat dan waktu yang diinginkan
+  // Lobby
+  section.section.search-container
+    .container
+      .columns.is-multiline
+        for data in loby
+          .column.is-half
+            .box
+              .content
+                p= data
+                h5.title.is-5= data.name
+                p
+                  i.lobby-icon.far.fa-clock
+                  |                   #{data.bookId.startHour}.00 | #{data.bookId.duration} Jam
+                p
+                  i.lobby-icon.far.fa-calendar
+                  |                   #{data.bookId.bookDate}
+                p
+                  i.lobby-icon.fas.fa-map-marker
+                  |                   #{data.bookId.field.name}
+                p Status : RANKED GAME
+                p Pemain : #{data.orderPeoples.length}/#{data.max}
+                progress.progress.is-large.is-success(value=data.orderPeoples.length, max=data.max)
+                a.button.button-join.is-fullwidth GABUNG

@@ -54,6 +54,16 @@ block content
       padding-left:3%;
       padding-right:3%;
     }
+    .select:not(.is-multiple):not(.is-loading)::after {
+      border-color: #8EC63F;
+    }
+    #form-button{
+      padding-left:1%;
+      padding-right:25px;
+    }
+    .white-icon{
+      color: white;
+    }
     
   .columns#bottom-lay
     h1 .
@@ -67,48 +77,64 @@ block content
             span.has-text-weight-bold.font-green bulutangkis 
             | di mana ?
       //- .columns.is-full
-      form.form.columns
-        .column.is-three-quarters
-          .columns
-            .column.is-two-thirds
-              label Kota Tempat Lapangan
-              .field
-                .control.has-icons-left
-                  input.input.is-large(type="text" placeholder="Lokasi Lapangan")
-                  span.icon.is-left
-                    i.fas.fa-map-marker.fa-lg
-            .column.is-one-third
-              label Tanggal
-              .field
-                .control.has-icons-left
-                  input.input.is-large(type="text" placeholder="Tanggal")
-                  span.icon.is-left
-                    i.fas.fa-calendar.fa-lg
-        .column.is-one-quarter
+      form.form
+        .columns
+          .column.is-three-quarters
+            .columns
+              .column.is-two-thirds
+                label Kota Tempat Lapangan
+                .field
+                  .control.has-icons-left
+                    input.input.is-large(type="text" placeholder="Lokasi Lapangan")
+                    span.icon.is-left
+                      i.fa.fa-map-marker.fa-lg
+              .column.is-one-third
+                label Tanggal
+                .field
+                  .control.has-icons-left
+                    input.input.is-large#my-element(type="date" placeholder="Tanggal")
+                    span.icon.is-left
+                      i.fas.fa-calendar.fa-lg
+          .column.is-one-quarter
+            .columns
+              .column.is-half
+                label Waktu Mulai
+                .field
+                  .control.has-icons-left
+                    //- input.input.is-large(type="text" placeholder="Waktu")
+                    .select.is-large
+                      select
+                        -var i = 0;
+                        while (i < 24)
+                          option #{i}.00
+                          -i++;
+                    span.icon.is-left
+                      i.fas.fa-clock.fa-lg
+              .column.is-half
+                label Durasi
+                .field
+                  .control.has-icons-left
+                    .select.is-large
+                      select
+                        -var i = 1;
+                        while (i < 24)
+                          option #{i} Jam
+                          -i++;
+                    span.icon.is-left
+                      i.fa.fa-stopwatch.fa-lg
+        br
+        .columns#form-button
+          .column.is-three-quarters
           .columns
             .column.is-half
-              label Waktu Mulai
-              .field
-                .control.has-icons-left
-                  //- input.input.is-large(type="text" placeholder="Waktu")
-                  .select.is-large
-                    select
-                      -var i = 0;
-                      while (i < 24)
-                        option #{i}.00
-                        -i++;
+            .column.is-haf
+              button.button.is-large.level-right(type="submit" style="background-color: #8EC63F;") 
+                span.icon.is-large.white-icon
+                  i.fas.fa-search
+                span.has-text-white Cari Lapangan
 
-
-                  span.icon.is-left
-                    i.fas.fa-clock.fa-lg
-            .column.is-half
-              label Durasi
-              .field
-                .control.has-icons-left
-                  input.input.is-large(type="text" placeholder="Durasi")
-                  span.icon.is-left
-                    i.fas.fa-stopwatch.fa-lg
-
+        br
+        
       
   //- #head-form.container
   //-   .card.head-form

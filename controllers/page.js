@@ -11,3 +11,10 @@ exports.getHomePage = (req, res) => {
 exports.getCourtPage = (req, res) => {
   res.render('court-info');
 };
+
+/**
+ * GET /community
+ */
+exports.getCommunityPage = (req, res) => {
+  res.render('community')
+};

@@ -1,0 +1,31 @@
+extends layout
+
+block head
+  link(rel="stylesheet" href="/assets/css/community.css")
+
+block content
+  .container
+    -var i = 0;
+    while (i < 5)
+      .box.columns.is-full
+        .column.is-one-quarter
+          img.community-logo(src="/assets/img/badminton-community.jpg")
+        .column.is-half
+          h2.title.community-name Komunitas Badminton Indonesia
+          .address
+            i.fa.fa-map-marker
+            span   Jakarta
+          p Komunitas Badminton Indonesia adalah media komunikasi antar atlet, mantan atlet, dan penggemar bulu tangkis indonesia yang berbasis di ibu kota Jakarta.
+          
+        
+        .column.is-one-quarter
+          .side-content
+            h3.has-text-weight-semibold Point
+            p 3017
+          .side-content
+            h3.has-text-weight-semibold Jumlah Member
+            p 381 / 500
+          .side-content
+            button.button.green-button.has-text-white.is-medium Gabung Komunitas
+        -i++;
+        

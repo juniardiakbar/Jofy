@@ -1,0 +1,22 @@
+.icons span {
+	display: inline;
+}
+
+.icons p {
+	display: inline;
+	margin-left: 5px;
+}
+
+.box-header {
+	padding: 10px 20px;
+	background-color: #F0F0F0;
+}
+
+.box-header p {
+	line-height: 40px;
+}
+
+.box-header .button {
+	right: 0 !important;
+}
+

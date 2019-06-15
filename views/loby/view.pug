@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  .container
+    .columns
+      .column.is-three-fifths
+      .column
+        .box
+          h5.title.is-5 Main bareng Pak Mus
+          .icons
+            span(style="display: inline;")
+              i.far.fa-clock
+            p(style="display: inline; margin-left: 5px;") 17:00 | 2 Jam
+          .icons
+            span(style="display: inline;")
+              i.far.fa-calendar
+            p(style="display: inline; margin-left: 5px;") 15 Jun 2019
+          .icons
+            span(style="display: inline;")
+              i.fas.fa-map-marker
+            p(style="display: inline; margin-left: 5px;") GOR Badminton Tadika
+          p Booked By: Juniardi Akbar
+          progress.progress.is-large.is-success(value='60', max='100')
+          a.button.is-primary Gabung

@@ -2,10 +2,11 @@ const Book = require('../models/Book');
 
 const defaultBookOption = {
   orderPeople: "5d03a7cd136bfe0059f7ef45",
-  field: "5d03b1ba7387e9004006bed7",
+  field: "5d048235d94eee0014cb3a7f",
   startHour: 19,
   duration: 1,
   bookDate: "2019-06-15",
+  isFull: true,
 };
 
 module.exports = new Promise((resolve, reject) => {

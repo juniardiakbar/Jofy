@@ -12,7 +12,7 @@ const bookSchema = new mongoose.Schema({
   startHour: Number,
   duration: Number,
   bookDate: Date,
-  status: String,
+  isFull: Boolean,
 }, { timestamps: true });
 
 const Book = mongoose.model('Book', bookSchema);

@@ -34,6 +34,8 @@ dotenv.config({ path: '.env.example' });
  */
 const apiController = require('./controllers/api');
 const fieldController = require('./controllers/field');
+const communityController = require('./controllers/community');
+const lobyController = require('./controllers/loby');
 
 /**
  * API keys and Passport configuration.
@@ -127,6 +129,14 @@ app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawes
  * Primary app routes.
  */
 app.get('/api/field', fieldController.getList);
+app.get('/api/field/:id', fieldController.getView);
+// app.get('/api/community', communityController.getList);
+// app.get('/api/loby', lobyController.getList);
+
+app.get('/field/:id/book/', fieldController.getForm);
+app.get('/loby/', lobyController.getList);
+app.get('/loby/:id', lobyController.getView);
+app.get('/community', communityController.getList);
 // app.get('/login', userController.getLogin);
 // app.post('/login', userController.postLogin);
 // app.get('/logout', userController.logout);

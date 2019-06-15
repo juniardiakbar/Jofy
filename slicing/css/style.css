@@ -5,6 +5,7 @@ body {
   font-size: 1em;
   letter-spacing: 0.03em;
   line-height: ;
+  color: #353535;
 }
 .container {
   padding-left: 10vw;
@@ -104,4 +105,34 @@ hr {
 }
 .button-search {
   margin: 16px 0 0 16px;
+}
+.lobby-title {
+  font-size: 2em;
+  font-weight: bolder;
+  margin-bottom: 0.25em;
+  color: #8BBF46;
+}
+.lobby-subtitle {
+  margin-bottom: 2em;
+  color: white;
+}
+.title-container {
+  padding-top: 2em;
+  padding-left: 15vw;
+  padding-right: 15vw; 
+  background: #353535;
+  min-height: 100px;
+  padding-bottom: 1em;
+}
+.lobby-icon {
+  color: #8BBF46;
+}
+.button-join {
+  color: white;
+  background: #8BBF46;
+  padding: 1.25em 0;
+}
+.button-join:hover {
+  background: rgb(115, 158, 58);
+  color: white;
 }

@@ -8,10 +8,11 @@ const bookSchema = new mongoose.Schema({
   field: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Field',
-  }.
+  },
   startHour: Number,
   duration: Number,
   bookDate: Date,
+  status: String,
 }, { timestamps: true });
 
 const Book = mongoose.model('Book', bookSchema);

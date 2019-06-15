@@ -1,26 +1,18 @@
-const createdField = require('./field')
-const createdField2 = require('./field2')
-const createdField3 = require('./field3')
-
+const createdFields = require('./fields');
+const createdBook = require('./book');
 
 module.exports = () => Promise.all([
-  createdField,
-  createdField2,
-  createdField3,
+  createdFields,
+  createdBook,
 ])
   .then(([
-    field,
-    field2,
-    field3,
+    fields,
+    book,
   ]) => {
-    const fieldMessage = !field ? 'field is already exist' : 'Successfully created field';
-    console.log('field : ', fieldMessage);
-
-    const fieldMessage2 = !field2 ? 'field is already exist' : 'Successfully created field2';
-    console.log('field2 : ', fieldMessage2);
-    
-    const fieldMessage3 = !field3 ? 'field is already exist' : 'Successfully created field3';
-    console.log('field3 : ', fieldMessage3);
+    const fieldsMessage = !fields ? 'fields is already exist' : 'Successfully created fields';
+    console.log('fields : ', fieldsMessage);
+    const bookMessage = !book ? 'book is already exist' : 'Successfully created book';
+    console.log('book : ', bookMessage);
   })
   .catch(e => {
     console.log('Error: ', e)

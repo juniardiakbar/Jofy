@@ -1,0 +1,34 @@
+extends ../layout
+
+block head
+  link(rel='stylesheet', href='/assets/css/loby/search.css')
+
+block content
+  .title-container
+    .lobby-title
+      p Temukan Lawan Tandingmu
+    .lobby-subtitle
+      p Cari berdasarkan tempat dan waktu yang diinginkan
+  // Lobby
+  section.section.search-container
+    .container
+      .columns.is-multiline
+        for data in loby
+          .column.is-half
+            .box
+              .content
+                p= data
+                h5.title.is-5= data.name
+                p
+                  i.lobby-icon.far.fa-clock
+                  |                   #{data.bookId.startHour}.00 | #{data.bookId.duration} Jam
+                p
+                  i.lobby-icon.far.fa-calendar
+                  |                   #{data.bookId.bookDate}
+                p
+                  i.lobby-icon.fas.fa-map-marker
+                  |                   #{data.bookId.field.name}
+                p Status : RANKED GAME
+                p Pemain : #{data.orderPeoples.length}/#{data.max}
+                progress.progress.is-large.is-success(value=data.orderPeoples.length, max=data.max)
+                a.button.button-join.is-fullwidth GABUNG

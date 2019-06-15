@@ -32,8 +32,12 @@ dotenv.config({ path: '.env.example' });
 /**
  * Controllers (route handlers).
  */
+const homeController = require('./controllers/home');
 const apiController = require('./controllers/api');
 const fieldController = require('./controllers/field');
+const communityController = require('./controllers/community');
+const lobyController = require('./controllers/loby');
+const userController = require('./controllers/user');
 
 /**
  * API keys and Passport configuration.
@@ -88,15 +92,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use((req, res, next) => {
-  if (req.path === '/api/upload') {
-    next();
-  } else {
-    lusca.csrf()(req, res, next);
-  }
-});
-app.use(lusca.xframe('SAMEORIGIN'));
-app.use(lusca.xssProtection(true));
+// app.use((req, res, next) => {
+//   if (req.path === '/api/upload') {
+//     next();
+//   } else {
+//     lusca.csrf()(req, res, next);
+//   }
+// });
+// app.use(lusca.xframe('SAMEORIGIN'));
+// app.use(lusca.xssProtection(true));
 app.disable('x-powered-by');
 app.use((req, res, next) => {
   res.locals.user = req.user;
@@ -126,10 +130,21 @@ app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawes
 /**
  * Primary app routes.
  */
-app.get('/api/field', fieldController.getList);
-// app.get('/login', userController.getLogin);
+
+
+app.get('/', homeController.getHome);
+app.post('/', homeController.postHome);
+app.get('/field', fieldController.getList);
+app.get('/field/:id', fieldController.getView);
+app.get('/field/:id/book/', fieldController.getForm);
+app.post('/field/:id/', fieldController.postForm);
+app.get('/loby/', lobyController.getList);
+app.get('/loby/:id', lobyController.getView);
+app.get('/community', communityController.getList);
+
+app.get('/login', userController.getLogin);
+app.get('/logout', userController.logout);
 // app.post('/login', userController.postLogin);
-// app.get('/logout', userController.logout);
 
 /**
  * OAuth authentication routes. (Sign in)
@@ -138,7 +153,7 @@ app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', '
 app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), (req, res) => {
   res.redirect(req.session.returnTo || '/');
 });
-app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email', 'https://www.googleapis.com/auth/drive'], accessType: 'offline', prompt: 'consent' }));
+app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' } ));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {
   res.redirect(req.session.returnTo || '/');
 });

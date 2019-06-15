@@ -51,7 +51,6 @@ passport.use(new FacebookStrategy({
         User.findById(req.user.id, (err, user) => {
           if (err) { return done(err); }
           user.facebook = profile.id;
-          user.tokens.push({ kind: 'facebook', accessToken });
           user.profile.name = user.profile.name || `${profile.name.givenName} ${profile.name.familyName}`;
           user.profile.gender = user.profile.gender || profile._json.gender;
           user.save((err) => {
@@ -76,7 +75,6 @@ passport.use(new FacebookStrategy({
           const user = new User();
           user.email = profile._json.email;
           user.facebook = profile.id;
-          user.tokens.push({ kind: 'facebook', accessToken });
           user.profile.name = `${profile.name.givenName} ${profile.name.familyName}`;
           user.profile.gender = profile._json.gender;
           user.save((err) => {

@@ -2,10 +2,10 @@ const Field = require('../models/Field');
 const Book = require('../models/Book');
 
 /**
- * GET /api/field/search
+ * GET /api/field
  */
 
- exports.getList = (req, res) => {
+exports.getList = (req, res) => {
   let {
     date,
     time,
@@ -37,7 +37,7 @@ const Book = require('../models/Book');
 
   var range = [];
   for (let i = parseInt(time); i < parseInt(time) + parseInt(duration); i++) {
-      range.push(i);
+    range.push(i);
   }
 
   const findBook = Book.find({
@@ -63,11 +63,79 @@ const Book = require('../models/Book');
         result.push(bookField.includes(data._id.toString()));
       });
 
+      res.render('field/search',{
+        result,
+        field,
+        query: req.query,
+      });
+
+    })
+    .catch(e => {
       res.send({
-        'status': 'success',
-        'data.field': field,
-        'data.book': book,
-        'data.result': result,
+        'status': 'error',
+        'message': e, 
+      });
+    });
+};
+
+/**
+ * GET /api/field/:id
+ */
+exports.getView = (req, res) => {
+  let {
+    date,
+    time,
+    duration,
+  } = req.query;
+
+  const findField = Field.findById(req.params.id);
+
+  var range = [];
+  for (let i = parseInt(time); i < parseInt(time) + parseInt(duration); i++) {
+    range.push(i);
+  }
+
+  const findBook = Book.find({
+    $and: [
+      {
+        "field": req.params.id
+      },
+      {
+        "bookDate": { $eq: date } 
+      }
+    ]
+  })
+
+  const findBookQuery = Book.find({
+    $and: [
+      {
+        "field": req.params.id
+      },
+      {
+        "bookDate": { $eq: date }
+      },
+      {
+        "startHour": { $in: range }
+      }
+    ]
+  })
+  // const findBook = Book.find();
+
+  Promise.all([findField, findBook, findBookQuery])
+    .then(([field, book, bookQuery]) => {
+      var hours = [];
+      book.forEach((data) => {
+        var rangeHour = []; 
+        for (let i = parseInt(data.startHour); i < parseInt(data.startHour) + parseInt(data.duration); i++) {
+          hours.push(i);
+        }        
+      });
+      res.render('field/view', {
+        field,
+        hours,
+        result: bookQuery.length == 0,
+        query: req.query,
+        id: req.params.id,
       });
     })
     .catch(e => {
@@ -77,3 +145,37 @@ const Book = require('../models/Book');
       });
     });
 };
+
+/**
+ * GET /field/:id/book
+ */
+exports.getForm = (req, res) => {
+  res.render('field/book');
+}
+
+exports.postForm = (req, res) => {
+  const { startHour, duration, bookDate } = req.body
+  const orderPeople = req.user._id;
+  const field = req.params.id;
+  Book.find()
+    .then(result => {      
+      newBook = new Book({
+        orderPeople, field, startHour, duration, bookDate      
+      });
+
+      return newBook.save();
+    })
+    .then(() => {
+      req.flash('success', {
+        msg: 'Your new book has been added.'
+      });
+      res.redirect(`/field/${req.params.id}`);
+    })
+    .catch(e => {
+      req.flash('errors', {
+        msg: e.message
+      });
+      console.log('Error occured', e);
+      res.redirect(`/field/${req.params.id}`);
+    });
+}

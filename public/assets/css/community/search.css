@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+body{
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.05em;
+}
+.centered{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center; 
+}
+.vertical-center{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.green-button{
+  background-color: #8EC63F;
+}
+.community-logo{
+  width:198px;
+  height: 198px;
+}
+.box{
+  margin: 1em;
+}
+.community-name{
+  margin: 5px !important;
+}
+.address{
+  margin-bottom: 1em;
+}
+.side-content{
+  margin-bottom: 1em;
+}

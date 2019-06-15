@@ -1,0 +1,42 @@
+extends ../layout
+
+block content
+  .container
+    .columns
+      .column.is-three-fifths
+        .box
+          .field
+            label.label Contact Name
+            .control
+              input.input(type='text', placeholder='Contact Name')
+          .columns
+            .column
+              label.label Mobile Phone
+              .control
+                input.input(type='text', placeholder='Mobile Phone')
+            .column
+              label.label Email
+              .control
+                input.input(type='email', placeholder='Email')
+          .columns
+            .column
+              label.checkbox
+              input(type='checkbox')
+              |   Open for public
+            .column
+              input#input-number(type='number' style='width: 50px; height: 10px;' min=0)
+              |   Orang
+          .columns
+            .column
+              label.checkbox
+              input(type='checkbox')
+              |   Ranked Match
+      .column
+        .box
+          .media
+            .media-left
+              figure.image.is-200x200
+                img(src='https://bulma.io/images/placeholders/96x96.png', alt='Placeholder image')
+            .media-content
+              h5 ANS Badminton HALL
+          .content

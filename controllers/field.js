@@ -96,9 +96,13 @@ exports.getView = (req, res) => {
   }
 
   const findBook = Book.find({
+    "field": req.params.id
+  })
+
+  const findBookQuery = Book.find({
     $and: [
       {
-        "bookDate": { $eq: date }
+        "field": req.params.id
       },
       {
         "startHour": { $in: range }
@@ -107,20 +111,20 @@ exports.getView = (req, res) => {
   })
   // const findBook = Book.find();
 
-  Promise.all([findField, findBook])
-    .then(([field, book]) => {
-      const bookField = [];
-      book.forEach((data) => {
-        bookField.push(data.field.toString());
-      })
+  Promise.all([findField, findBook, findBookQuery])
+    .then(([field, book, bookQuery]) => {
+      // const bookField = [];
+      // book.forEach((data) => {
+      //   bookField.push(data.field.toString());
+      // })
 
-      const result = bookField.includes(field._id.toString());
+      // const result = bookField.includes(field._id.toString());
 
       res.send({
         'status': 'success',
         'data.field': field,
         'data.book': book,
-        'data.result': result,
+        'data.result': bookQuery.length == 0,
       });
     })
     .catch(e => {
@@ -136,4 +140,31 @@ exports.getView = (req, res) => {
  */
 exports.getForm = (req, res) => {
   res.render('field/book');
+}
+
+exports.postForm = (req, res) => {
+  const { startHour, duration, bookDate } = req.body
+  const orderPeople = req.user._id;
+  const field = req.params.id;
+  Book.find()
+    .then(result => {      
+      newBook = new Book({
+        orderPeople, field, startHour, duration, bookDate      
+      });
+
+      return newBook.save();
+    })
+    .then(() => {
+      req.flash('success', {
+        msg: 'Your new book has been added.'
+      });
+      res.redirect(`/field/${req.params.id}`);
+    })
+    .catch(e => {
+      req.flash('errors', {
+        msg: e.message
+      });
+      console.log('Error occured', e);
+      res.redirect(`/field/${req.params.id}`);
+    });
 }

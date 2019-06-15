@@ -129,7 +129,7 @@ block content
                     else
                       a.button.button-notavailabled(disabled='')
                         | TIDAK TERSEDIA
-                  .button.button-detail.is-pulled-right
+                  a.button.button-detail.is-pulled-right(href=`/field/${data._id}?date=${query.date}&time=${query.time}&duration=${query.duration}`)
                     | Detail
 
             - i++

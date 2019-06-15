@@ -129,15 +129,14 @@ app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawes
 /**
  * Primary app routes.
  */
-// app.get('/api/field', fieldController.getListApi);
-app.get('/api/field/:id', fieldController.getView);
-// app.get('/api/community', communityController.getList);
-// app.get('/api/loby', lobyController.getList);
+
 
 app.get('/', homeController.getHome);
 app.post('/', homeController.postHome);
 app.get('/field', fieldController.getList);
+app.get('/field/:id', fieldController.getView);
 app.get('/field/:id/book/', fieldController.getForm);
+app.post('/field/:id/book/', fieldController.postForm);
 app.get('/loby/', lobyController.getList);
 app.get('/loby/:id', lobyController.getView);
 app.get('/community', communityController.getList);

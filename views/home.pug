@@ -11,6 +11,7 @@ block content
     @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
     *{
       font-family: 'Quicksand', sans-serif;
+      letter-spacing: 0.05em;
     }
     .centered {
       width: 100%;
@@ -43,6 +44,7 @@ block content
     #box-form{
       z-index:10;
       margin-top:-70px;
+      margin-bottom: 2em; 
     }
     #bottom-lay{
       background-color:#353535;
@@ -57,14 +59,48 @@ block content
     .select:not(.is-multiple):not(.is-loading)::after {
       border-color: #8EC63F;
     }
-    #form-button{
-      padding-left:1%;
-      padding-right:25px;
+    #find-button{
+      margin-left:86.25%;
     }
     .white-icon{
       color: white;
     }
-    
+    .promo-image{
+      width: 25vw;
+    }
+    .home-title{
+      margin-bottom: 0.75em;
+    }
+    .left{
+      text-align: left;
+      display: block;
+      margin-left: 0;
+    }
+    .right{
+      text-align: right;
+      display: block;
+      margin-left: 0;
+    }
+    .bottom-cont{
+      margin-bottom: 2em;
+    }
+    .feature-image-left{
+      height: 15vw;
+      margin-right: 5em;
+    }
+    .feature-image-right{
+      height: 15vw;
+      margin-left: 5em;
+    }
+    .why{
+      margin-bottom: 1em !important;
+    }
+    .why-text{
+      line-height: 1.5em !important;
+    }
+    .green-button{
+      background-color: #8EC63F;
+    }
   .columns#bottom-lay
     h1 .
 
@@ -77,7 +113,7 @@ block content
             span.has-text-weight-bold.font-green bulutangkis 
             | di mana ?
       //- .columns.is-full
-      form.form
+      form.form#top-form(method='POST' action='')
         .columns
           .column.is-three-quarters
             .columns
@@ -122,78 +158,50 @@ block content
                           -i++;
                     span.icon.is-left
                       i.fa.fa-stopwatch.fa-lg
-        br
-        .columns#form-button
-          .column.is-three-quarters
-          .columns
-            .column.is-half
-            .column.is-haf
-              button.button.is-large.level-right(type="submit" style="background-color: #8EC63F;") 
-                span.icon.is-large.white-icon
-                  i.fas.fa-search
-                span.has-text-white Cari Lapangan
-
-        br
+        //- br
+        button.button.is-large.level-right.green-button#find-button(type="submit") 
+          span.icon.white-icon
+            i.fas.fa-search.fa-lg
+          span.has-text-white.has-text-weight-semibold Cari Lapangan
         
-      
-  //- #head-form.container
-  //-   .card.head-form
-  //-     .card-body
-  //-       form.form(action="")  
-  //-         .row
-  //-           .col-lg-8
-  //-             .form-group
-  //-               label.form-label Lokasi
-  //-               input.form-control(type='text')
-  //-           .col-lg-4
-  //-             .form-group
-  //-               label.form-label Tanggal
-  //-               input.form-control(type='text')
-  //-           .col-lg-4
-  //-             .form-group
-  //-               label.form-label Jam Mulai
-  //-               input.form-control(type='text')
-  //-           .col-lg-4
-  //-             .form-group
-  //-               label.form-label Durasi
-  //-               input.form-control(type='text')
-  //-           .col-lg-4
-  //-             .form-group
-  //-               label.form-label     .
-  //-               btn.btn.btn-primary.form-control Cari Lapangan
-  
-  .main-container
-    .container
-      #promotion
-        .col-lg-12
-          h1.centered Promotion
-        .col-lg-4
-          img.centered(src="/image/bukalapak-logo.jpg")
-        .col-lg-4
-          img.centered(src="/image/bukalapak-logo.jpg")
-        .col-lg-4
-          img.centered(src="/image/bukalapak-logo.jpg")
+              
+        //- br
 
-      #joinUs
-        .col-lg-12
-          h1.centered Why Join Us
-        .col-lg-12
-          .col-lg-3
-            img(src="/image/bukalapak-logo.jpg")
-          .col-lg-9
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
-        .col-lg-12
-          .col-lg-9
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
-          .col-lg-3
-            img(src="/image/bukalapak-logo.jpg")
-          .col-lg-12
-          .col-lg-3
-            img(src="/image/bukalapak-logo.jpg")
-          .col-lg-9
-            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
-  .container-fluid#topPick
-    .col-lg-12 
-      h1.centered Top Lapangan
-            
+  .container.bottom-cont
+    h1.centered.has-text-weight-semibold.home-title Promo & Deals
+    .columns
+      .column.is-one-third.centered
+        img.promo-image(src="/assets/img/diskon-1.png")
+      .column.is-one-third.centered
+        img.promo-image(src="/assets/img/diskon-2.png")
+      .column.is-one-third.centered
+        img.promo-image(src="/assets/img/diskon-3.png")
+
+  
+    h1.centered.has-text-weight-semibold.home-title Kenapa Memilih Jofy ?
+    .columns.why  
+      img.feature-image-left(src="/assets/img/feature-1.png")
+      span.why-text
+        h3.font-green.has-text-weight-semibold.left.why-text Pesan Lapangan Real-Time
+        h4.left.why-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
+    .columns.why
+      span
+        h3.font-green.has-text-weight-semibold.right.why-text Temukan Lawan Tandingmu
+        h4.right.why-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
+      img.feature-image-right(src="/assets/img/feature-2.png")
+    .columns.why
+      img.feature-image-left(src="/assets/img/feature-3.png")
+      span
+        h3.font-green.has-text-weight-semibold.left.why-text Lebih Seru Bareng Komunitas
+        h4.left.why-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
+      
+    include partials/carousel-bottom
+
+    .columns
+      img.feature-image-left(src="/assets/img/feature-3.png")
+      span
+        h3.font-green.has-text-weight-semibold.left.why-text Bergabung sebagai Mitra
+        h4.left.why-text Bayangkan bisa mengelola Venue milik anda dengan lebih fleksible dari mana saja, kapan saja. Mendapat booking secara online, Promo, dan Bonus-bonus menarik lainnya. Mari kembangkan bisnis anda ke tingkatan selanjutnya bersama Jofy
+        button.button.is-large.green-button.has-text-white.has-text-weight-semibold Daftar Jofy Mitra
+          
       

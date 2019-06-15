@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+*{
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.05em;
+}
+.centered{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center; 
+}
+
+.main-image{
+  width: 100vw;
+  border-radius: 10px;
+}
+
+.side-image{
+  border-radius: 5px;
+}
+
+.item{
+  margin-bottom: 1em;
+}
+
+.court-name{
+  margin-top: 0;
+}
+
+.address{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.time-button{
+  width: 9.5vw;
+}
+.book-button{
+  display: block;
+  width: 100%;
+}
+.vertical-center{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.green-button{
+  background-color: #8EC63F;
+}
+.red-button{
+  background-color: tomato;
+}
+
+

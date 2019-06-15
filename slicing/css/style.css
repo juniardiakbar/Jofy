@@ -136,3 +136,10 @@ hr {
   background: rgb(115, 158, 58);
   color: white;
 }
+.rank-name {
+  font-weight: bolder;
+}
+.rank-score {
+  font-weight: bolder;
+  color: #8BBF46;
+}

@@ -131,6 +131,7 @@ app.get('/api/field', fieldController.getList);
 app.get('/', pageController.getHomePage);
 app.get('/court', pageController.getCourtPage);
 app.get('/community', pageController.getCommunityPage);
+app.get('/step-one', pageController.getStepOnePage);
 // app.get('/login', userController.getLogin);
 // app.post('/login', userController.postLogin);
 // app.get('/logout', userController.logout);

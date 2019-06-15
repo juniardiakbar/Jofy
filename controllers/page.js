@@ -16,5 +16,12 @@ exports.getCourtPage = (req, res) => {
  * GET /community
  */
 exports.getCommunityPage = (req, res) => {
-  res.render('community')
+  res.render('community');
+};
+
+/**
+ * GET /step-one
+ */
+exports.getStepOnePage = (req, res) => {
+  res.render('step-one');
 };

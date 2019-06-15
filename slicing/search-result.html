@@ -13,6 +13,7 @@
     <!--Fonts-->
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
   </head>
   <body>
     <!-- Navbar -->
@@ -50,6 +51,73 @@
     <!-- Search -->
     <section class="section search-container">
       <div class="container">
+        <div class="columns">
+          <div class="column is-narrow">
+            <label>Kota Tempat Lapangan</label>
+            <div class="field">
+              <div class="control has-icons-left">
+                <input class="input" type="text" placeholder="Lokasi Lapangan">
+                <span class="icon is-left">
+                  <i class="fa fa-map-marker"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="column is-narrow">
+            <label>Tanggal</label>
+            <div class="field">
+              <div class="control has-icons-left">
+                <input class="input" id="my-element" type="date">
+                <span class="icon is-left">
+                  <i class="fab fa-calender"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="column is-narrow">
+            <label>Waktu Mulai</label>
+            <div class="field">
+              <div class="control has-icons-left">
+                <div class="select">
+                  <select name="">
+                    <option value="09.00">09.00</option>
+                    <option value="10.00">10.00</option>
+                    <option value="11.00">11.00</option>
+                  </select>
+                </div>
+                <span class="icon is-left">
+                  <i class="fas fa-clock fa-lg"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="column is-narrow">
+            <label>Durasi</label>
+            <div class="field">
+              <div class="control has-icons-left">
+                <div class="select">
+                  <select name="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                <span class="icon is-left">
+                  <i class="fas fa-clock fa-lg"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <a class="button button-search has-icon-left">
+              <span class="icon">
+                <i class="fas fa-search"></i>
+              </span>
+              &nbsp;
+              Cari
+            </a>
+          </div>
+        </div>
         <div class="columns">
           <div class="column is-one-thirds">
             <div class="box">
@@ -198,6 +266,8 @@
     </section>
     <!-- End of Search -->
 
+    <script src="js/script.js"></script>
+    <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
       AOS.init();

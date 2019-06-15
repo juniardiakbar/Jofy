@@ -6,6 +6,10 @@ body {
   letter-spacing: 0.03em;
   line-height: ;
 }
+.container {
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
 .navbar {
   padding: 0.5em;
 }
@@ -61,8 +65,8 @@ hr {
   padding-bottom: 0.8em;
 }
 .media-image, .media-left {
-  min-height: 215px;
-  min-width: 215px;
+  min-height: 235px;
+  min-width: 235px;
 }
 .media-price {
   font-size: 0.9em;
@@ -81,7 +85,7 @@ hr {
   border-width: 1px;
   border-color: rgb(223, 61, 61);
 }
-.button-detail {
+.button-detail, .button-search {
   color: white;
   background: #8BBF46;
   padding: 1.25em 1em;
@@ -90,4 +94,14 @@ hr {
 }
 .card-search {
   margin-bottom: 1em;
+}
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: #8BBF46;
+}
+.button-search:hover {
+  background: rgb(115, 158, 58);
+  color: white;
+}
+.button-search {
+  margin: 16px 0 0 16px;
 }

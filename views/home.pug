@@ -1,10 +1,17 @@
 extends layout
 
 block head
-  link(rel='stylesheet', href='/assets/home.css')
+  //- link(rel='stylesheet', href='/assets/home.css')
 
+
+block content
+  include partials/carousel-top
 
   style(type="text/css").
+    @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+    *{
+      font-family: 'Quicksand', sans-serif;
+    }
     .centered {
       width: 100%;
     }
@@ -33,15 +40,76 @@ block head
     .carousel-inner{
       z-index: 0;
     }
+    #box-form{
+      z-index:10;
+      margin-top:-70px;
+    }
+    #bottom-lay{
+      background-color:#353535;
+    }
+    .font-green{
+      color:#8EC63F;
+    }
+    #box-header{
+      padding-left:3%;
+      padding-right:3%;
+    }
+    
+  .columns#bottom-lay
+    h1 .
 
-block content
-  include partials/carousel-top
-
-  .container
-    .box
+  .container#box-form
+    .box#box-header
       .columns
         .column.is-full
-          h1 Hai, mau main
+          h1.has-text-weight-semibold Hai, mau main
+          h1.has-text-weight-semibold
+            span.has-text-weight-bold.font-green bulutangkis 
+            | di mana ?
+      //- .columns.is-full
+      form.form.columns
+        .column.is-three-quarters
+          .columns
+            .column.is-two-thirds
+              label Kota Tempat Lapangan
+              .field
+                .control.has-icons-left
+                  input.input.is-large(type="text" placeholder="Lokasi Lapangan")
+                  span.icon.is-left
+                    i.fas.fa-map-marker.fa-lg
+            .column.is-one-third
+              label Tanggal
+              .field
+                .control.has-icons-left
+                  input.input.is-large(type="text" placeholder="Tanggal")
+                  span.icon.is-left
+                    i.fas.fa-calendar.fa-lg
+        .column.is-one-quarter
+          .columns
+            .column.is-half
+              label Waktu Mulai
+              .field
+                .control.has-icons-left
+                  //- input.input.is-large(type="text" placeholder="Waktu")
+                  .select.is-large
+                    select
+                      -var i = 0;
+                      while (i < 24)
+                        option #{i}.00
+                        -i++;
+
+
+                  span.icon.is-left
+                    i.fas.fa-clock.fa-lg
+            .column.is-half
+              label Durasi
+              .field
+                .control.has-icons-left
+                  input.input.is-large(type="text" placeholder="Durasi")
+                  span.icon.is-left
+                    i.fas.fa-stopwatch.fa-lg
+
+      
   //- #head-form.container
   //-   .card.head-form
   //-     .card-body

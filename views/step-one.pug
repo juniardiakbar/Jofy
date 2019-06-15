@@ -4,20 +4,46 @@ block head
   link(rel="stylesheet" href="/assets/css/step-one.css")
 
 block content
-  ul.steps
+  
+  ul.steps.container.steps-container.has-content-centered
+    li.steps-segment.is-active
+      span.steps-marker
+        span.icon
+          i.fa.fa-id-card
+      .steps-content
+        p Fill in data
+
     li.steps-segment
-     span.steps-marker
-      span.icon
-        i.fa.fa-check
+      span.steps-marker
+        span.icon
+          i.fas.fa-file-alt
+      .steps-content
+        p Review
     li.steps-segment
-     span.steps-marker
-      span.icon
-        i.fa.fa-check
+      span.steps-marker
+        span.icon
+          i.fa.fa-credit-card
+      .steps-content
+        p Payment
     li.steps-segment
-     span.steps-marker
-      span.icon
-        i.fa.fa-check
-    li.steps-segment
-     span.steps-marker
-      span.icon
-        i.fa.fa-check 
+      span.steps-marker
+        span.icon
+          i.fa.fa-check 
+      .steps-content
+        p Success
+  
+  .container
+    h2.is-size-4 Your Information
+    form.form
+      .box
+        .columns.is-full
+          label Contact's name 
+          input(type="text" name="nama" placeholder="Name")
+        .columns
+          .column.is-half
+            label Mobile number
+            input(type="text" name="hp" placeholder="email@example.com")
+          .column.is-half
+            label Email
+            input(type="email" name="email")
+      

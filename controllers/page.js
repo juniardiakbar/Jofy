@@ -25,3 +25,10 @@ exports.getCommunityPage = (req, res) => {
 exports.getStepOnePage = (req, res) => {
   res.render('step-one');
 };
+
+/**
+ * GET /after-match
+ */
+exports.getAfterMatchPage = (req, res) => {
+  res.render('after-match');
+};

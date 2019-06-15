@@ -3,56 +3,70 @@ extends layout
 block head
   link(rel='stylesheet', href='/assets/home.css')
 
+
+  style(type="text/css").
+    .centered {
+      width: 100%;
+    }
+    .head-form  {
+    z-index:2;
+    }
+    #head-form{
+      z-index:2;
+      margin-top:100px;
+      background-color: white;
+    }
+
+    #promotion{
+      align-items: center;
+      margin: auto;
+    }
+    .centered{
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      text-align: center; 
+    }
+    #topPick{
+      background-color :grey;
+    }
+    .carousel-inner{
+      z-index: 0;
+    }
+
 block content
-  #topCarousel.container-fluid
-    .container
-      #myCarousel.carousel.slide(data-ride="carousel")
-        // Indicators
-        ol.carousel-indicators
-          li.active(data-target="#myCarousel" data-slide-to="0")
-          li(data-target="#myCarousel" data-slide-to="1")
-          li(data-target="#myCarousel" data-slide-to="2")
-        // Wrapper for slides
-        .carousel-inner             
-          .item.active
-            img(src="assets/img/banner.png" alt="Header")
-          .item
-            img(src="assets/img/banner.png" alt="Header")
-          .item
-            img(src="assets/img/banner.png" alt="Header")
-        // Left and right controls
-        a.left.carousel-control(href="#myCarousel" data-slide="prev")
-          span.glyphicon.glyphicon-chevron-left
-          span.sr-only Previous
-        a.right.carousel-control(href="#myCarousel" data-slide="next")
-          span.glyphicon.glyphicon-chevron-right
-          span.sr-only Next
-  
-  #head-form.container
-    .card.head-form
-      .card-body
-        form.form(action="")  
-          .row
-            .col-lg-8
-              .form-group
-                label.form-label Lokasi
-                input.form-control(type='text')
-            .col-lg-4
-              .form-group
-                label.form-label Tanggal
-                input.form-control(type='text')
-            .col-lg-4
-              .form-group
-                label.form-label Jam Mulai
-                input.form-control(type='text')
-            .col-lg-4
-              .form-group
-                label.form-label Durasi
-                input.form-control(type='text')
-            .col-lg-4
-              .form-group
-                label.form-label     .
-                btn.btn.btn-primary.form-control Cari Lapangan
+  include partials/carousel-top
+
+  .container
+    .box
+      .columns
+        .column.is-full
+          h1 Hai, mau main
+  //- #head-form.container
+  //-   .card.head-form
+  //-     .card-body
+  //-       form.form(action="")  
+  //-         .row
+  //-           .col-lg-8
+  //-             .form-group
+  //-               label.form-label Lokasi
+  //-               input.form-control(type='text')
+  //-           .col-lg-4
+  //-             .form-group
+  //-               label.form-label Tanggal
+  //-               input.form-control(type='text')
+  //-           .col-lg-4
+  //-             .form-group
+  //-               label.form-label Jam Mulai
+  //-               input.form-control(type='text')
+  //-           .col-lg-4
+  //-             .form-group
+  //-               label.form-label Durasi
+  //-               input.form-control(type='text')
+  //-           .col-lg-4
+  //-             .form-group
+  //-               label.form-label     .
+  //-               btn.btn.btn-primary.form-control Cari Lapangan
   
   .main-container
     .container

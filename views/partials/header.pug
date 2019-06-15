@@ -1,20 +1,44 @@
-.container
-  nav.navbar.navbar-fixed-top(style="background-color:white")
-    .navbar-header
-      a.navbar-brand(href="#") Jolly-Bye
-    ul.nav.navbar-nav
-      li.active
-        a(href="#") Home
-      li
-        a(href="#") Page 1
-      li
-        a(href="#") Page 2
-    ul.nav.navbar-nav.navbar-right
-      li
-        a(href="#")
-          span.glyphicon.glyphicon-user
-          |  Sign Up
-      li
-        a(href="#")
-          span.glyphicon.glyphicon-log-in
-          |  Login
+//- .container
+//-   nav.navbar.navbar-fixed-top(style="background-color:white")
+//-     .navbar-header
+//-       a.navbar-brand(href="#") Jolly-Bye
+//-     ul.nav.navbar-nav
+//-       li.active
+//-         a(href="#") Home
+//-       li
+//-         a(href="#") Page 1
+//-       li
+//-         a(href="#") Page 2
+//-     ul.nav.navbar-nav.navbar-right
+//-       li
+//-         a(href="#")
+//-           span.glyphicon.glyphicon-user
+//-           |  Sign Up
+//-       li
+//-         a(href="#")
+//-           span.glyphicon.glyphicon-log-in
+//-           |  Login
+block head
+  style(type="text/css").
+    img#logo{
+      width: 20px;
+      height: 20px;
+    }
+nav.navbar.is-fixed-top
+  //- .navbar-brand.logo
+  //-   img(src="/assets/img/logo.png")
+  .navbar-menu
+    .navbar-start
+      img.navbar-item#logo(src="/assets/img/logo.png" )
+      a.navbar-item(href="#") Home
+      a.navbar-item(href="#") Page 1
+      a.navbar-item(href="#") Page 2
+    .navbar-end
+      a.navbar-item(href="#")
+        span.glyphicon.glyphicon-user 
+        |  .  Sign Up
+      a.navbar-item(href="#")
+        span.glyphicon.glyphicon-log-in 
+        |  .  Login
+
+      

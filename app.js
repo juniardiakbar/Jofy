@@ -32,6 +32,7 @@ dotenv.config({ path: '.env.example' });
 /**
  * Controllers (route handlers).
  */
+const homeController = require('./controllers/home');
 const apiController = require('./controllers/api');
 const fieldController = require('./controllers/field');
 const communityController = require('./controllers/community');
@@ -90,15 +91,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use((req, res, next) => {
-  if (req.path === '/api/upload') {
-    next();
-  } else {
-    lusca.csrf()(req, res, next);
-  }
-});
-app.use(lusca.xframe('SAMEORIGIN'));
-app.use(lusca.xssProtection(true));
+// app.use((req, res, next) => {
+//   if (req.path === '/api/upload') {
+//     next();
+//   } else {
+//     lusca.csrf()(req, res, next);
+//   }
+// });
+// app.use(lusca.xframe('SAMEORIGIN'));
+// app.use(lusca.xssProtection(true));
 app.disable('x-powered-by');
 app.use((req, res, next) => {
   res.locals.user = req.user;
@@ -128,11 +129,14 @@ app.use('/webfonts', express.static(path.join(__dirname, 'node_modules/@fortawes
 /**
  * Primary app routes.
  */
-app.get('/api/field', fieldController.getList);
+// app.get('/api/field', fieldController.getListApi);
 app.get('/api/field/:id', fieldController.getView);
 // app.get('/api/community', communityController.getList);
 // app.get('/api/loby', lobyController.getList);
 
+app.get('/', homeController.getHome);
+app.post('/', homeController.postHome);
+app.get('/field', fieldController.getList);
 app.get('/field/:id/book/', fieldController.getForm);
 app.get('/loby/', lobyController.getList);
 app.get('/loby/:id', lobyController.getView);

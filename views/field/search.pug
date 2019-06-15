@@ -1,0 +1,135 @@
+extends ../layout
+
+block head
+  link(rel='stylesheet' href='/assets/css/field/search.css')  
+
+//- block script
+
+
+block content
+  section.section.search-container
+    .container
+      form(method='POST' action='/')
+        .columns
+          .column.is-narrow
+            label Kota Tempat Lapangan
+            .field
+              .control.has-icons-left
+                input.input(type='text', placeholder='Lokasi Lapangan', name='location')
+                span.icon.is-left
+                  i.fa.fa-map-marker
+          .column.is-narrow
+            label Tanggal
+            .field
+              .control.has-icons-left
+                input#my-element.input(type='date', name='date')
+                span.icon.is-left
+                  i.fab.fa-calender
+          .column.is-narrow
+            label Waktu Mulai
+            .field
+              .control.has-icons-left
+                .select
+                  select(name="time")
+                    option(selected hidden value=query.time) #{query.time}.00
+                    -var i = 0;
+                    while (i < 24)
+                      option(value=`${i}`) #{i}.00
+                      -i++;
+                span.icon.is-left
+                  i.fas.fa-clock.fa-lg
+          .column.is-narrow
+            label Durasi
+            .field
+              .control.has-icons-left
+                .select
+                  select(name="duration")
+                    option(selected hidden value=query.duration) #{query.duration} Jam
+                    -var i = 1;
+                    while (i < 24)
+                      //- if (i == query.duration)
+                      //-   option(value=`${i}`, selected) #{i} Jam
+                      //- else 
+                      option(value=`${i}`) #{i} Jam
+                      -i++;
+                span.icon.is-left
+                  i.fas.fa-clock.fa-lg
+          .column
+            button.button.button-search.has-icon-left(type="submit")
+              span.icon
+                i.fas.fa-search
+              |               Cari
+      .columns
+        .column.is-one-thirds
+          .box
+            p.box-title Hasil Sort
+            p.box-subtitle Hasil diurutkan berdasarkan
+            hr
+            label.radio
+              input(type='radio', name='', checked='')
+              |                   Harga Tertinggi
+            br
+            label.radio
+              input(type='radio', name='')
+              |                   Harga Terendah
+            br
+            label.radio
+              input(type='radio', name='')
+              |                   Rating Tertinggi
+          .box
+            p.box-title Hasil Filter
+            p.box-subtitle Hasil ditampilkan berdasarkan kategori
+            hr
+            p.box-title Fasilitas
+            label.checkbox
+              input(type='checkbox', name='')
+              |                   Loker
+            br
+            label.checkbox
+              input(type='checkbox', name='')
+              |                   Tempat Ibadah
+            br
+            label.checkbox
+              input(type='checkbox', name='')
+              |                   Shower
+            br
+            label.checkbox
+              input(type='checkbox', name='')
+              |                   Wi-fi
+            br
+            label.checkbox
+              input(type='checkbox', name='')
+              |                   Kantin
+            br
+            hr
+            p.box-title Harga
+            .columns.price-filter
+              .column
+                input.input.is-rounded(type='text', placeholder='Harga terendah')
+              .column
+                input.input.is-rounded(type='text', placeholder='Harga tertinggi')
+            input.slider.is-fullwidth(step='1', min='0', max='100', value='50', type='range')
+        .column.is-two-thirds
+          - var i = 0
+          for data in field
+            .card.card-search
+              .media
+                .media-left
+                  figure.image.is-128x128
+                    img.media-image(src='https://bulma.io/images/placeholders/96x96.png', alt='Placeholder image')
+                .media-content
+                  .content
+                    .media-title= data.name
+                    .media-desc= data.address
+                    .media-desc.media-price
+                      p= `Rp. ${data.price}`
+                    if (!result[i])
+                      a.button.button-availabled(disabled='')
+                        | TERSEDIA
+                    else
+                      a.button.button-notavailabled(disabled='')
+                        | TIDAK TERSEDIA
+                  .button.button-detail.is-pulled-right
+                    | Detail
+
+            - i++

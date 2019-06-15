@@ -1,0 +1,35 @@
+block head
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js")
+  style(type="text/css").
+    #topCarousel{
+      background-color:#353535;
+      z-index: 0;
+    }
+    .carousel-control{
+      background-image: none; 
+    }
+
+#topCarousel
+  .container
+    #myCarousel.carousel.slide(data-ride="carousel")
+      // Indicators
+      ol.carousel-indicators
+        li.active(data-target="#myCarousel" data-slide-to="0")
+        li(data-target="#myCarousel" data-slide-to="1")
+        li(data-target="#myCarousel" data-slide-to="2")
+      // Wrapper for slides
+      .carousel-inner             
+        .item.active
+          img(src="assets/img/banner.png" alt="Header")
+        .item
+          img(src="assets/img/banner.png" alt="Header")
+        .item
+          img(src="assets/img/banner.png" alt="Header")
+      // Left and right controls
+      a.left.carousel-control(href="#myCarousel" data-slide="prev" style="background-image:none")
+        span.glyphicon.glyphicon-chevron-left
+        span.sr-only Previous
+      a.right.carousel-control(href="#myCarousel" data-slide="next" style="background-image:none")
+        span.glyphicon.glyphicon-chevron-right
+span.sr-only Next

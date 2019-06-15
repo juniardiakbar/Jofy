@@ -4,6 +4,7 @@ const Book = require('../models/Book');
 /**
  * GET /api/field
  */
+
 exports.getList = (req, res) => {
   let {
     date,
@@ -62,12 +63,12 @@ exports.getList = (req, res) => {
         result.push(bookField.includes(data._id.toString()));
       });
 
-      res.send({
-        'status': 'success',
-        'data.field': field,
-        'data.book': book,
-        'data.result': result,
+      res.render('field/search',{
+        result,
+        field,
+        query: req.query,
       });
+
     })
     .catch(e => {
       res.send({

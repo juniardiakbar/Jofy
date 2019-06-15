@@ -1,22 +1,17 @@
-//- block head
-//-   style(type="text/css").
-//-     img#logo{
-//-       width: 20px;
-//-       height: 20px;
-//-     }
-nav.navbar.is-fixed-top
-  //- .navbar-brand.logo
-  //-   img(src="/assets/img/logo.png")
-  .navbar-menu
-    .navbar-start
-      img.navbar-item#logo(src="/assets/img/logo.png" )
-      a.navbar-item(href="#") Home
-      a.navbar-item(href="#") Page 1
-      a.navbar-item(href="#") Page 2
+// Navbar
+nav.navbar(role='navigation', aria-label='main navigation')
+  .navbar-brand
+    a.navbar-item.navbar-logo(href='/')
+      img(src='img/logo.png')
+    a.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', data-target='navbarBasicExample')
+      span(aria-hidden='true')
+      span(aria-hidden='true')
+      span(aria-hidden='true')
+  #navbarBasicExample.navbar-menu
     .navbar-end
-      a.navbar-item(href="#")
-        span.glyphicon.glyphicon-user 
-        |  .  Sign Up
-      a.navbar-item(href="#")
-        span.glyphicon.glyphicon-log-in 
-        | . Login
+      .navbar-item
+        .buttons
+          a.button.button-outlined.has-icon-left
+            span.icon
+              i.fas.fa-user
+            | Login

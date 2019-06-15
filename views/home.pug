@@ -1,27 +1,203 @@
 extends layout
 
 block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
-  hr
-  .row
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
-    .col-md-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-raised(href='#', role='button') View details »
+  style(type="text/css").
+    @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+    *{
+      font-family: 'Quicksand', sans-serif;
+      letter-spacing: 0.05em;
+    }
+    .centered {
+      width: 100%;
+    }
+    .head-form  {
+    z-index:2;
+    }
+    #head-form{
+      z-index:2;
+      margin-top:100px;
+      background-color: white;
+    }
+
+    #promotion{
+      align-items: center;
+      margin: auto;
+    }
+    .centered{
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      text-align: center; 
+    }
+    #topPick{
+      background-color :grey;
+    }
+    .carousel-inner{
+      z-index: 0;
+    }
+    #box-form{
+      z-index:10;
+      margin-top:-70px;
+      margin-bottom: 2em; 
+    }
+    #bottom-lay{
+      background-color:#353535;
+    }
+    .font-green{
+      color:#8EC63F;
+    }
+    #box-header{
+      padding-left:3%;
+      padding-right:3%;
+    }
+    .select:not(.is-multiple):not(.is-loading)::after {
+      border-color: #8EC63F;
+    }
+    #find-button{
+      margin-left:86.25%;
+    }
+    .white-icon{
+      color: white;
+    }
+    .promo-image{
+      width: 25vw;
+    }
+    .home-title{
+      margin-bottom: 0.75em;
+    }
+    .left{
+      text-align: left;
+      display: block;
+      margin-left: 0;
+    }
+    .right{
+      text-align: right;
+      display: block;
+      margin-left: 0;
+    }
+    .bottom-cont{
+      margin-bottom: 2em;
+    }
+    .feature-image-left{
+      height: 15vw;
+      margin-right: 5em;
+      padding-top: 1.5em;
+    }
+    .feature-image-right{
+      height: 15vw;
+      margin-left: 5em;
+      padding-top: 1.5em;
+    }
+    .why{
+      margin-bottom: 1em !important;
+    }
+    .why-text{
+      line-height: 1.5em !important;
+    }
+    .green-button{
+      background-color: #8EC63F;
+    }
+
+  include partials/carousel-top
+ 
+  .columns#bottom-lay
+    h1 .
+
+  .container#box-form
+    .box#box-header
+      .columns
+        .column.is-full
+          h1.has-text-weight-semibold Hai, mau main
+          h1.has-text-weight-semibold
+            span.has-text-weight-bold.font-green bulutangkis 
+            | di mana ?
+      //- .columns.is-full
+      form.form#top-form(method='POST' action='/')
+        .columns
+          .column.is-three-quarters
+            .columns
+              .column.is-two-thirds
+                label Kota Tempat Lapangan
+                .field
+                  .control.has-icons-left
+                    input.input.is-large(type="text" placeholder="Lokasi Lapangan" name="location")
+                    span.icon.is-left
+                      i.fa.fa-map-marker.fa-lg
+              .column.is-one-third
+                label Tanggal
+                .field
+                  .control.has-icons-left
+                    input.input.is-large#my-element(type="date" placeholder="Tanggal" name="date")
+                    span.icon.is-left
+                      i.fas.fa-calendar.fa-lg
+          .column.is-one-quarter
+            .columns
+              .column.is-half
+                label Waktu Mulai
+                .field
+                  .control.has-icons-left
+                    //- input.input.is-large(type="text" placeholder="Waktu")
+                    .select.is-large
+                      select(name="time")
+                        -var i = 0;
+                        while (i < 24)
+                          option(value=`${i}`) #{i}.00
+                          -i++;
+                    span.icon.is-left
+                      i.fas.fa-clock.fa-lg
+              .column.is-half
+                label Durasi
+                .field
+                  .control.has-icons-left
+                    .select.is-large
+                      select(name="duration")
+                        -var i = 1;
+                        while (i < 24)
+                          option(value=`${i}`) #{i} Jam
+                          -i++;
+                    span.icon.is-left
+                      i.fa.fa-stopwatch.fa-lg
+        //- br
+        button.button.is-large.level-right.green-button#find-button(type="submit") 
+          span.icon.white-icon
+            i.fas.fa-search.fa-lg
+          span.has-text-white.has-text-weight-semibold Cari Lapangan
+        
+              
+        //- br
+  .container.bottom-cont
+    h1.centered.has-text-weight-semibold.home-title Promo & Deals
+    .columns
+      .column.is-one-third.centered
+        img.promo-image(src="/assets/img/diskon-1.png")
+      .column.is-one-third.centered
+        img.promo-image(src="/assets/img/diskon-2.png")
+      .column.is-one-third.centered
+        img.promo-image(src="/assets/img/diskon-3.png")
+
+  
+    h1.centered.has-text-weight-semibold.home-title Kenapa Memilih Jofy ?
+    .columns.why  
+      img.feature-image-left(src="/assets/img/feature-1.png")
+      span.why-text
+        h3.font-green.has-text-weight-semibold.left.why-text Pesan Lapangan Real-Time
+        h4.left.why-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
+    .columns.why
+      span
+        h3.font-green.has-text-weight-semibold.right.why-text Temukan Lawan Tandingmu
+        h4.right.why-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
+      img.feature-image-right(src="/assets/img/feature-2.png")
+    .columns.why
+      img.feature-image-left(src="/assets/img/feature-3.png")
+      span
+        h3.font-green.has-text-weight-semibold.left.why-text Lebih Seru Bareng Komunitas
+        h4.left.why-text Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus nisl tincidunt eget nullam non nisi est sit. Pellentesque habitant morbi tristique senectus et netus.
+      
+    include partials/carousel-bottom
+
+    .columns
+      img.feature-image-left(src="/assets/img/feature-3.png")
+      span
+        h3.font-green.has-text-weight-semibold.left.why-text Bergabung sebagai Mitra
+        h4.left.why-text Bayangkan bisa mengelola Venue milik anda dengan lebih fleksible dari mana saja, kapan saja. Mendapat booking secara online, Promo, dan Bonus-bonus menarik lainnya. Mari kembangkan bisnis anda ke tingkatan selanjutnya bersama Jofy
+      button.button.is-large.green-button.has-text-white.has-text-weight-semibold Daftar Jofy Mitra

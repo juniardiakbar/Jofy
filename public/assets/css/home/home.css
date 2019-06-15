@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+*{
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.05em;
+}
+.centered {
+  width: 100%;
+}
+.head-form  {
+z-index:2;
+}
+#head-form{
+  z-index:2;
+  margin-top:100px;
+  background-color: white;
+}
+
+#promotion{
+  align-items: center;
+  margin: auto;
+}
+.centered{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center; 
+}
+#topPick{
+  background-color :grey;
+}
+.carousel-inner{
+  z-index: 0;
+}
+#box-form{
+  z-index:10;
+  margin-top:-70px;
+  margin-bottom: 2em; 
+}
+#bottom-lay{
+  background-color:#353535;
+}
+.font-green{
+  color:#8EC63F;
+}
+#box-header{
+  padding-left:3%;
+  padding-right:3%;
+}
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: #8EC63F;
+}
+#find-button{
+  margin-left:86.25%;
+}
+.white-icon{
+  color: white;
+}
+.promo-image{
+  width: 25vw;
+}
+.home-title{
+  margin-bottom: 0.75em;
+}
+.left{
+  text-align: left;
+  display: block;
+  margin-left: 0;
+}
+.right{
+  text-align: right;
+  display: block;
+  margin-left: 0;
+}
+.bottom-cont{
+  margin-bottom: 2em;
+}
+.feature-image-left{
+  height: 15vw;
+  margin-right: 5em;
+}
+.feature-image-right{
+  height: 15vw;
+  margin-left: 5em;
+}
+.why{
+  margin-bottom: 1em !important;
+}
+.why-text{
+  line-height: 1.5em !important;
+}
+.green-button{
+  background-color: #8EC63F;
+}

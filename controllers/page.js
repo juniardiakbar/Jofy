@@ -27,6 +27,13 @@ exports.getStepOnePage = (req, res) => {
 };
 
 /**
+ * GET /step-twp
+ */
+exports.getStepTwoPage = (req, res) => {
+  res.render('step-two');
+};
+
+/**
  * GET /after-match
  */
 exports.getAfterMatchPage = (req, res) => {

@@ -133,6 +133,7 @@ app.get('/court', pageController.getCourtPage);
 app.get('/community', pageController.getCommunityPage);
 app.get('/step-one', pageController.getStepOnePage);
 app.get('/after-match', pageController.getAfterMatchPage);
+app.get('/step-two', pageController.getStepTwoPage);
 // app.get('/login', userController.getLogin);
 // app.post('/login', userController.postLogin);
 // app.get('/logout', userController.logout);

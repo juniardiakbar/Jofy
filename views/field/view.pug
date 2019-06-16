@@ -6,97 +6,99 @@ block head
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js")
 
 block content
-  .container
-    .columns
-      .column.is-half
-        #myCarousel.carousel.slide(data-ride="carousel")
-          // Indicators
-          ol.carousel-indicators
-            li.active(data-target="#myCarousel" data-slide-to="0")
-            -var k = 0;
-            while (k < 3)
-              li(data-target="#myCarousel" data-slide-to=i+1)
-              -k++;
-          // Wrapper for slides
-          .carousel-inner             
-            .item.active
-              img.centered.main-image(src="/assets/img/badminton-court.jpg" alt="Header")
-            -var i = 0;
-            while (i < k+1)
-              .item
-                img.centered.main-image(src="/assets/img/badminton-court.jpg" alt="Header")
-              -i++;
-        -var j = 0;
-        .columns
-          while (j < i)
-            .column.is-one-quarter
-              img.centered.side-image(src="/assets/img/badminton-court.jpg")
-            -j++;
-
-      .column.is-half
-        h2.has-text-weight-semibold.court-name= field.name
-        -var i = 0;
-        while (i < 5)
-          .icon
-            i.fas.fa-star
-          -i++;
-
-        br
-        .address
-          i.fa.fa-map-marker
-          span= field.address
-        
-        .open-hour
-          h4 Jam Buka
-          i.fas.fa-clock
-          span   07.00 - 22.00
-        
-        .desc
-          h4 Deskripsi Lapangan
-          p Salah satu lapangan Badminton terbaik di kawasan Tangerang Selatan. Dekat dengan lingkungan kampus dan wisata kuliner bintaro, membuat tempat ini seringkali menjadi pilihan untuk berolahraga. Akses yang juga merupakan jalan utama dan ditengah perumahan dengan alam yang asri. Lapangan disini yang berbahan interlock, sangat terawat dan memanjakan kamu yang suka mengeluarkan skill terbaikmu saat bermain dengan Tim. Booking Zero Badminton di Jofy sekarang
-
-    -var j = 0;
-    -var i = 0;
-    while ( j < 2)
+  //- include ../partials/header
+  section.section
+    .container
       .columns
-        -var i = 0;
-        while ( i < 8)
-          -var temp = false
-          for data in hours
-            if (data == j+i+(7*(j+1)))
-              - temp = true
-
-          if !temp
-            .column.is-one-eight
-              a.button.green-button.centered.time-button.is-large.has-text-weight-semibold.has-text-white(href=`/field/${id}?date=${query.date}&time=${j+i+(7*(j+1))}&duration=${query.duration}`) #{j+i+(7*(j+1))}.00
-          else
-            .column.is-one-eight
-              a.button.red-button.centered.time-button.is-large.has-text-weight-semibold.has-text-white(href=`/field/${id}?date=${query.date}&time=${j+i+(7*(j+1))}&duration=${query.duration}`) #{j+i+(7*(j+1))}.00
-          -i++;
-      -j++;
-    
-    .box
-      .container
-        form(method="POST")
+        .column.is-half
+          #myCarousel.carousel.slide(data-ride="carousel")
+            // Indicators
+            ol.carousel-indicators
+              li.active(data-target="#myCarousel" data-slide-to="0")
+              -var k = 0;
+              while (k < 3)
+                li(data-target="#myCarousel" data-slide-to=i+1)
+                -k++;
+            // Wrapper for slides
+            .carousel-inner             
+              .item.active
+                img.centered.main-image(src="/assets/img/badminton-court.jpg" alt="Header")
+              -var i = 0;
+              while (i < k+1)
+                .item
+                  img.centered.main-image(src="/assets/img/badminton-court.jpg" alt="Header")
+                -i++;
+          -var j = 0;
           .columns
-            input(name="startHour" value=query.time hidden)
-            input(name="duration" value=query.duration hidden)
-            input(name="bookDate" value=query.date hidden)
+            while (j < i)
+              .column.is-one-quarter
+                img.centered.side-image(src="/assets/img/badminton-court.jpg")
+              -j++;
 
-            .column.is-one-five
-              label Nama Lapangan
-              p= field.name
-            .column.is-one-five
-              label Tanggal
-              p= query.date
-            .column.is-one-five
-              label Waktu
-              p= `${query.time}.00`
-            .column.is-one-five
-              label Durasi
-              p= `${query.duration} Jam`
-            .column.is-one-five
-              if (result)
-                button.button.is-large.vertical-center.green-button.has-text-weight-semibold.has-text-white(type="submit") Booking
-              else
-                button.button.is-large.vertical-center.green-button.has-text-weight-semibold(disabled='') Booking
+        .column.is-half
+          h2.has-text-weight-semibold.court-name= field.name
+          -var i = 0;
+          while (i < 5)
+            .icon
+              i.fas.fa-star
+            -i++;
+
+          br
+          .address
+            i.fa.fa-map-marker
+            span= field.address
+          
+          .open-hour
+            h4 Jam Buka
+            i.fas.fa-clock
+            span   07.00 - 22.00
+          
+          .desc
+            h4 Deskripsi Lapangan
+            p Salah satu lapangan Badminton terbaik di kawasan Tangerang Selatan. Dekat dengan lingkungan kampus dan wisata kuliner bintaro, membuat tempat ini seringkali menjadi pilihan untuk berolahraga. Akses yang juga merupakan jalan utama dan ditengah perumahan dengan alam yang asri. Lapangan disini yang berbahan interlock, sangat terawat dan memanjakan kamu yang suka mengeluarkan skill terbaikmu saat bermain dengan Tim. Booking Zero Badminton di Jofy sekarang
+
+      -var j = 0;
+      -var i = 0;
+      while ( j < 2)
+        .columns
+          -var i = 0;
+          while ( i < 8)
+            -var temp = false
+            for data in hours
+              if (data == j+i+(7*(j+1)))
+                - temp = true
+
+            if !temp
+              .column.is-one-eight
+                a.button.green-button.centered.time-button.is-large.has-text-weight-semibold.has-text-white(href=`/field/${id}?date=${query.date}&time=${j+i+(7*(j+1))}&duration=${query.duration}`) #{j+i+(7*(j+1))}.00
+            else
+              .column.is-one-eight
+                a.button.red-button.centered.time-button.is-large.has-text-weight-semibold.has-text-white(href=`/field/${id}?date=${query.date}&time=${j+i+(7*(j+1))}&duration=${query.duration}`) #{j+i+(7*(j+1))}.00
+            -i++;
+        -j++;
+      
+      .box
+        .container
+          form(method="POST")
+            .columns
+              input(name="startHour" value=query.time hidden)
+              input(name="duration" value=query.duration hidden)
+              input(name="bookDate" value=query.date hidden)
+
+              .column.is-one-five
+                label Nama Lapangan
+                p= field.name
+              .column.is-one-five
+                label Tanggal
+                p= query.date
+              .column.is-one-five
+                label Waktu
+                p= `${query.time}.00`
+              .column.is-one-five
+                label Durasi
+                p= `${query.duration} Jam`
+              .column.is-one-five
+                if (result)
+                  button.button.is-large.vertical-center.green-button.has-text-weight-semibold.has-text-white(type="submit") Booking
+                else
+                  button.button.is-large.vertical-center.green-button.has-text-weight-semibold(disabled='') Booking

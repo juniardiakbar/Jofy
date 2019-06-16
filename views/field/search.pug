@@ -5,8 +5,8 @@ block head
 
 //- block script
 
-
 block content
+  include ../partials/header
   section.section.search-container
     .container
       form(method='POST' action='/')
@@ -58,7 +58,7 @@ block content
             button.button.button-search.has-icon-left(type="submit")
               span.icon
                 i.fas.fa-search
-              |               Cari
+              |&nbsp; Cari
       .columns
         .column.is-one-thirds
           .box

@@ -1,8 +1,34 @@
-// Navbar
-nav.navbar(role='navigation', aria-label='main navigation')
+style(type="text/css").
+  body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1em;
+    letter-spacing: 0.03em;
+    padding-top: 0;
+  }
+  .container {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+  .navbar {
+    padding: 0.5em;
+    margin-bottom: none;
+  }
+  .button-outlined {
+    color: #8BBF46;
+    background: transparent;
+    border-width: 1px;
+    border-color: #8BBF46;
+    padding: 1.25em 1em;
+  }
+  .button-outlined:hover {
+    color: white;
+    background: #8BBF46;
+    border-width: none;
+  }
+nav.navbar(role='navigation', aria-label='main navigation')(style='padding: 0px; margin-bottom: 0px;')
   .navbar-brand
     a.navbar-item.navbar-logo(href='/')
-      img(src='img/logo.png')
+      img(src='/assets/img/logo.png')
     a.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', data-target='navbarBasicExample')
       span(aria-hidden='true')
       span(aria-hidden='true')
@@ -14,4 +40,4 @@ nav.navbar(role='navigation', aria-label='main navigation')
           a.button.button-outlined.has-icon-left
             span.icon
               i.fas.fa-user
-            | Login
+            | &nbsp; Login

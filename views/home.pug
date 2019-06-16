@@ -3,18 +3,19 @@ extends layout
 block head
   //- link(rel='stylesheet', href='/assets/home.css')
 block content
+  include partials/header
   include partials/carousel-top
 
   style(type="text/css").
     @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
     *{
       font-family: 'Quicksand', sans-serif;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.03em;
     }
     .head-form  {
-    z-index:2;
+      z-index:2;
     }
-    #head-form{
+    #head-form{home.home.
       z-index:2;
       margin-top:100px;
       background-color: white;
@@ -98,6 +99,10 @@ block content
     .green-button{
       background-color: #8EC63F;
     }
+    footer {
+      padding: 1em 0;
+    }
+
   .columns#bottom-lay
     h1 .
 
@@ -162,9 +167,10 @@ block content
           span.has-text-white.has-text-weight-semibold Cari Lapangan
         
               
-        //- br
+  br
   .container.bottom-cont
     h1.centered.has-text-weight-semibold.home-title Promo & Deals
+    br
     .columns
       .column.is-one-third.centered
         img.promo-image(src="/assets/img/diskon-1.png")
@@ -173,6 +179,7 @@ block content
       .column.is-one-third.centered
         img.promo-image(src="/assets/img/diskon-3.png")
 
+  br
   .container.bottom-cont
     h1.centered.has-text-weight-semibold.home-title Kenapa Memilih Jofy ?
     .columns.why  
@@ -194,8 +201,10 @@ block content
   include partials/carousel-bottom
   .container.bottom-cont
     .columns
-      img.feature-image-left(src="/assets/img/feature-3.png")
+      img.feature-image-left(src="/assets/img/work.png")
       span
         h3.font-green.has-text-weight-semibold.left.why-text Bergabung sebagai Mitra
         h4.left.why-text Bayangkan bisa mengelola Venue milik anda dengan lebih fleksible dari mana saja, kapan saja. Mendapat booking secara online, Promo, dan Bonus-bonus menarik lainnya. Mari kembangkan bisnis anda ke tingkatan selanjutnya bersama Jofy
         button.button.is-large.green-button.has-text-white.has-text-weight-semibold Daftar Jofy Mitra
+  
+  include partials/footer

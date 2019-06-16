@@ -1,0 +1,85 @@
+extends layout
+
+block head
+  link(rel="stylesheet" href="/assets/css/step-two.css")
+
+block content
+  
+  ul.steps.container.steps-container.has-content-centered
+    li.steps-segment
+      span.steps-marker
+        span.icon
+          i.fa.fa-id-card
+      .steps-content
+        p Isi data
+
+    li.steps-segment.is-active
+      span.steps-marker
+        span.icon
+          i.fas.fa-file-alt
+      .steps-content
+        p Cek ulang
+    li.steps-segment
+      span.steps-marker
+        span.icon
+          i.fa.fa-credit-card
+      .steps-content
+        p Pembayaran
+    li.steps-segment
+      span.steps-marker
+        span.icon
+          i.fa.fa-check 
+      .steps-content
+        p Sukses
+
+  .container
+    .details
+      h2.is-size-4 Data Diri
+      form.form
+        .box
+          .container
+            .columns
+              .column.is-one-quarter
+                img(src="/assets/img/badminton-court.jpg")
+              .column.is-three-quarters
+                .columns
+                  .column.court-name
+                    h3.is-size-4.title.has-text-weight-semibold Zero Badminton
+                    hr
+                .columns
+                  .column
+                    label.has-text-weight-semibold Nama
+                    p Izur Budianto
+                .columns
+                  .column.is-one-third
+                    label.has-text-weight-semibold Tanggal
+                    p 16/09/2019
+                    //- .field
+                    //-   .control
+                    //-     input.input(type="text" name="hp" placeholder="+6282212345678" )
+                  .column.is-one-third
+                    label.has-text-weight-semibold Jam Mulai
+                    p 19.00
+                  .column.is-one-third
+                    label.has-text-weight-semibold Jam Selesai
+                    p 21.00
+    .details
+      h2.is-size-4 Detail pesanan
+      .box
+        .container
+          h4.has-text-weight-semibold Zero Badminton
+          .columns
+            .column.is-one-fifth
+              p.has-text-weight-semibold Tanggal
+              p 16/06/2019
+            .column.is-one-fifth
+              p.has-text-weight-semibold Jam Mulai
+              p 19.00
+            .column.is-one-fifth
+              p.has-text-weight-semibold Durasi
+              p 2 Jam
+            .column.is-one-fifth
+              p.has-text-weight-semibold Harga
+              p Rp 100.000
+            .column.is-one-fifth
+a.button.is-medium.vertical-center.green-button.has-text-weight-bold.has-text-white(role="button" href="/") Selanjutnya

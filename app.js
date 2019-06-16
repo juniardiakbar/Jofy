@@ -22,6 +22,7 @@ const multer = require('multer');
 const seeders = require('./seeders');
 const upload = multer({ dest: path.join(__dirname, 'uploads') });
 
+
 seeders();
 
 /**
@@ -38,11 +39,16 @@ const fieldController = require('./controllers/field');
 const communityController = require('./controllers/community');
 const lobyController = require('./controllers/loby');
 const userController = require('./controllers/user');
+const rankController = require('./controllers/rank');
+const matchController = require('./controllers/match');
+const stepController = require('./controllers/step');
+
 
 /**
  * API keys and Passport configuration.
  */
 const passportConfig = require('./config/passport');
+const { isAuthenticated } = passportConfig;
 
 /**
  * Create Express server.
@@ -137,10 +143,15 @@ app.post('/', homeController.postHome);
 app.get('/field', fieldController.getList);
 app.get('/field/:id', fieldController.getView);
 app.get('/field/:id/book/', fieldController.getForm);
-app.post('/field/:id/', fieldController.postForm);
-app.get('/loby/', lobyController.getList);
-app.get('/loby/:id', lobyController.getView);
+app.post('/field/:id/', isAuthenticated, fieldController.postForm);
+app.get('/lobby/', lobyController.getList);
+app.get('/lobby/:id', lobyController.getView);
 app.get('/community', communityController.getList);
+app.get('/rank', rankController.getList);
+app.get('/match', matchController.getList);
+app.get('/after-match', matchController.getView);
+app.get('/step-one', stepController.getStepOnePage);
+app.get('/step-two', stepController.getStepTwoPage);
 
 app.get('/login', userController.getLogin);
 app.get('/logout', userController.logout);

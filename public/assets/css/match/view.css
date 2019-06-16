@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+body{
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 0.05em;
+}
+.centered{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center; 
+}
+.box{
+  margin: 1em;
+}
+.red{
+  background-color: tomato;
+}
+.green{
+  background-color: #8EC63F;
+}
+.score{
+  border-radius: 10px;
+}
+.columns{
+  margin: 0.5em;
+}
+.left{
+  text-align: right !important;
+  display: block !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+.right{
+  text-align: right !important;
+  display: block !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+.score-input{
+  height: 10vw;
+  width: 10vw;
+}
+.profile-pict{
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+}
+.desc{
+  padding-top: 0 !important;
+}
+.sidebysideleft{
+  margin-right: 1em;
+  margin-left: 0;
+}
+.main-side{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.sidebysideright{
+  margin-left: 1em;
+}
+.green-button{
+  background-color: #8EC63F;
+}
+.main-cont{
+  margin: 2em !important;
+}

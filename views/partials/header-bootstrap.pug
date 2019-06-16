@@ -1,14 +1,5 @@
 style(type="text/css").
-  body {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1em;
-    letter-spacing: 0.03em;
-    padding-top: 0;
-  }
-  .container {
-    padding-left: 10vw;
-    padding-right: 10vw;
-  }
+
   .navbar {
     padding: 0.5em;
     margin-bottom: none;
@@ -25,10 +16,14 @@ style(type="text/css").
     background: #8BBF46;
     border-width: none;
   }
+  #image{
+    widht: 500px !important;
+  }
+
 nav.navbar(role='navigation', aria-label='main navigation')(style='padding: 0px; margin-bottom: 0px;')
   .navbar-brand
     a.navbar-item.navbar-logo(href='/')
-      img(src='/assets/img/logo.png')
+      img#image(src='/assets/img/logo.png' ,widht= '200px', height='200px')
     a.navbar-item.navbar-logo(href='/lobby') Lobby
     a.navbar-item.navbar-logo(href='/rank') Rank
     a.navbar-item.navbar-logo(href='/match') Match

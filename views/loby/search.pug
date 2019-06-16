@@ -4,6 +4,7 @@ block head
   link(rel='stylesheet', href='/assets/css/loby/search.css')
 
 block content
+  include ../partials/header-bootstrap
   .title-container
     .lobby-title
       p Temukan Lawan Tandingmu
@@ -17,7 +18,6 @@ block content
           .column.is-half
             .box
               .content
-                p= data
                 h5.title.is-5= data.name
                 p
                   i.lobby-icon.far.fa-clock

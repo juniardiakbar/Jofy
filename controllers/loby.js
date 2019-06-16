@@ -16,7 +16,7 @@ exports.getList = (req, res) => {
     .populate({
       path : 'bookId',
       populate : {
-        path : ['field', 'orderPeople']
+        path : 'field',
       }
     })
     .limit(limit)

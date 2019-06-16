@@ -1,0 +1,63 @@
+extends ../layout
+
+block head
+  link(rel="stylesheet" href="/assets/css/match/view.css")
+
+block content
+  include ../partials/header-bootstrap
+  .container
+    -var j = 0;
+    while (j < 3)
+      .box.columns.main-cont
+        .column.is-5
+          .columns
+            img.profile-pict(src="/assets/img/jojo.jpg")
+            .column.desc
+              h3.has-text-weight-semibold Jonathan Christie (You)
+              .columns.main-side
+                .column.is-half
+                  h4.has-text-weight-semibold Points
+                  p 22053
+                .column.is-half
+                  h4.has-text-weight-semibold Score
+                  -var i = 0;
+                    select.sidebysideleft
+                      while (i < 31)
+                        option #{i}
+                        -i++;
+                
+              //- h3.has-text-weight-semibold Jonathan Christie (You)
+              //- .columns.main-side
+              //-   h4.has-text-weight-semibold.sidebysideleft Points
+              //-   h4.has-text-weight-semibold.sidebysideright Score
+              //- .columns.main-side
+              //-   p.sidebysideleft 22053
+              //-   -var i = 0;
+              //-   select.sidebysideright
+              //-     while (i < 31)
+              //-       option #{i}
+              //-       -i++;
+        .column.is-2.centered
+          h1.title VS
+          p Set #{j + 1}
+
+        .column.is-5.left
+          .columns
+            .column.desc
+              h3.has-text-weight-semibold Taufik Hidayat (Opponent)
+              .columns.main-side
+                .column.is-half
+                  h4.has-text-weight-semibold Score
+                  -var i = 0;
+                    select.sidebysideleft
+                      while (i < 31)
+                        option #{i}
+                        -i++;
+                .column.is-half
+                  h4.has-text-weight-semibold Points
+                  p 20798
+                
+            img.profile-pict(src="/assets/img/taufik-hidayat.jpg")
+       
+        -j++;
+    buttton.button.centered.green-button.has-text-weight-semibold.has-text-white Record My Game

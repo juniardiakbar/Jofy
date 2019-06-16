@@ -1,5 +1,6 @@
 const Field = require('../models/Field');
 const Book = require('../models/Book');
+const querystring = require('querystring');
 
 /**
  * GET /api/field
@@ -157,6 +158,12 @@ exports.postForm = (req, res) => {
   const { startHour, duration, bookDate } = req.body
   const orderPeople = req.user._id;
   const field = req.params.id;
+  const query = req.query;
+  const q = querystring.stringify({
+    "date": query.date,
+    "time": query.time,
+    "duration": query.duration,
+  });
   Book.find()
     .then(result => {      
       newBook = new Book({
@@ -169,13 +176,15 @@ exports.postForm = (req, res) => {
       req.flash('success', {
         msg: 'Your new book has been added.'
       });
-      res.redirect(`/field/${req.params.id}`);
+      // res.redirect(`/field/${req.params.id}`);
+      res.redirect(`/field/${req.params.id}?` + q);
     })
     .catch(e => {
       req.flash('errors', {
         msg: e.message
       });
       console.log('Error occured', e);
-      res.redirect(`/field/${req.params.id}`);
+      // res.redirect(`/field/${req.params.id}`);
+      res.redirect(`/field/${req.params.id}?` + q);
     });
 }
